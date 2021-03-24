@@ -124,7 +124,7 @@ public class LoginController {
         }
     }
 
-    @RequestMapping(value = "/session/destroy", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/api/v1/session/destroy", method = RequestMethod.DELETE)
     public ResponseEntity<?> destroySession(@RequestHeader("Authorization") String authHeader) throws ResourceNotFoundException {
         List<Session> allSessions = sessionRepository.findAll();
         for (Session sessionFromList : allSessions) {
