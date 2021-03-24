@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.feri.sipv</groupId>
 	<artifactId>sipv-server</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>sipv-server</name>
 	<description>Backend for SIPV project</description>
 	<properties>
