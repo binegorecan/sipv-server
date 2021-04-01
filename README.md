@@ -97,7 +97,7 @@ Session destroyed.
 Server keeps a log of user activity.
 
 
-#FOODS MANIPULATION
+# FOODS MANIPULATION
 Foods are separated in two categories. Public ones and Personal ones. Personal are only accessable if user has PERSONAL_FOODS_PERMISSION. Public foods are accesable for viewing without permission, but for editinga, adding and deleting, user must have PUBLIC_FOODS_PERMISSION.
 
 There are separate endpoints for public and personal foods:
