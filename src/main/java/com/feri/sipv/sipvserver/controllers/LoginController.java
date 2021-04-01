@@ -104,9 +104,10 @@ public class LoginController {
             List<User> users = userRepository.findAll();
             String passHash = null;
             for (User user : users){
-                if(user.getUsername().equals(username))
+                if(user.getUsername().equals(username)) {
                     passHash = DigestUtils.sha256Hex(user.getId() + password);
                     break;
+                }
             }
             if(passHash != null)
                 authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, passHash));
@@ -116,9 +117,10 @@ public class LoginController {
         } catch (BadCredentialsException e) {
             List<User> users = userRepository.findAll();
             for (User user : users){
-                if(user.getUsername().equals(username))
+                if(user.getUsername().equals(username)) {
                     activityRepository.save(new Activity(user.getId(), System.currentTimeMillis() / 1000L, "Login attempt. [INVALID CREDENTIALS]", false));
-                break;
+                    break;
+                }
             }
             throw new Exception("INVALID_CREDENTIALS", e);
         }
