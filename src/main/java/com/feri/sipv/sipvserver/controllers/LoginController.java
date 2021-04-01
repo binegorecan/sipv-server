@@ -61,7 +61,7 @@ public class LoginController {
         newUser.setId(UUID.randomUUID());
         String passHash = DigestUtils.sha256Hex(newUser.getId() + registrationRequest.password);
         newUser.setPasswordHash(passHash);
-        newUser.setPermissions("{permissions:[PROFILE_PERMISSION]}");
+        newUser.setPermissions("{permissions:[PROFILE_PERMISSION, PERSONAL_FOODS_PERMISSION]}");
 
         activityRepository.save(new Activity(newUser.getId(), System.currentTimeMillis() / 1000L, "New user registered: " + newUser.getFirstName() + " " + newUser.getLastName() + "; " + newUser.getId(), false));
 
