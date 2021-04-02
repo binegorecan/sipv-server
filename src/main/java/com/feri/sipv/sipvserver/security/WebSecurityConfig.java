@@ -47,6 +47,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
                 .antMatchers(HttpMethod.POST,"/api/v1/register").permitAll()
                 .antMatchers("/api/v1/authenticate").permitAll()
                 .antMatchers("/api/v1/profile/**").hasAuthority("PROFILE_PERMISSION")
+                .antMatchers("/api/v1/intake/**").hasAuthority("INTAKE_PERMISSION")
                 .antMatchers("/api/v1/foods/personal/**").hasAuthority("PERSONAL_FOODS_PERMISSION")
                 .antMatchers("/api/v1/foods/public/**").hasAuthority("PUBLIC_FOODS_PERMISSION")
                 .antMatchers(HttpMethod.GET, "/api/v1/foods/public").hasAuthority("PROFILE_PERMISSION")

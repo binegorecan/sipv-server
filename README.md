@@ -155,3 +155,28 @@ Supported types:
     FISH,
     CARBS
 ```
+
+
+# DAILY INTAKE MANIPULATION
+For intake manipulation user needs INTAKE_PERMISSION
+
+Endpoint:
+```
+http://sipv.gorecan.com:11111/api/v1/intake/
+```
+
+#### Adding:
+```
+POST: http://sipv.gorecan.com:11111/api/v1/intake/<day>/<month>/<year>/<food-id>
+```
+
+#### Deleting:
+```
+DELETE: http://sipv.gorecan.com:11111/api/v1/intake/<intake-id>
+```
+
+#### Viewing:
+```
+GET: http://sipv.gorecan.com:11111/api/v1/intake/<day>/<month>/<year>
+```
+returns an array of "intake" objects
