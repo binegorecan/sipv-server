@@ -1,6 +1,6 @@
 # SIPV API
 
-Backend service for SIPV project, running at http://sipv.gorecan.com:11111/api/v1/
+Backend service for SIPV project, running at https://sipv.gorecan.com:11111/api/v1/
 
 ## API Authorization
 
@@ -18,7 +18,7 @@ To obtain JWT token, you must be a registered user. See bellow how to register. 
 
 Request example:
 ```
-POST: http://sipv.gorecan.com:11111/api/v1/authenticate
+POST: https://sipv.gorecan.com:11111/api/v1/authenticate
 BODY:
 {
     "username": "<your-username>",
@@ -43,7 +43,7 @@ Once you obtain your JWT, it will be valid for 7 days.
 To register, follow the example bellow:
 
 ```
-POST: http://sipv.gorecan.com:11111/api/v1/register
+POST: https://sipv.gorecan.com:11111/api/v1/register
 BODY:
 {
     "firstName": "<your-name>",
@@ -64,7 +64,7 @@ Once successfully registered, you can obtain a JWT toke, to access API endpoints
 For now, only one API endpoint is supported. You can use it, to verify if your app is working propperly.
 Example call for endpoint:
 ```
-GET: http://sipv.gorecan.com:11111/api/v1/profile
+GET: https://sipv.gorecan.com:11111/api/v1/profile
 ```
 Response:
 ```json
@@ -85,7 +85,7 @@ Response:
 Server keeps sessions for each generated JWT token, therefore it is good practice to destroy sessions when a logout event occurs in client app.
 Session destroy example:
 ```
-DELETE: http://sipv.gorecan.com:11111/api/v1/session/destroy
+DELETE: https://sipv.gorecan.com:11111/api/v1/session/destroy
 ```
 Response:
 ```
@@ -102,17 +102,17 @@ Foods are separated in two categories. Public ones and Personal ones. Personal a
 
 There are separate endpoints for public and personal foods:
 ```
-http://sipv.gorecan.com:11111/api/v1/foods/personal
+https://sipv.gorecan.com:11111/api/v1/foods/personal
 ```
 ```
-http://sipv.gorecan.com:11111/api/v1/foods/public
+https://sipv.gorecan.com:11111/api/v1/foods/public
 ```
 
 ### CRUD for foods:
 
 #### Adding:
 ```
-POST: http://sipv.gorecan.com:11111/api/v1/foods/personal
+POST: https://sipv.gorecan.com:11111/api/v1/foods/personal
 BODY:
 {
     "name": "Kinder jajčka",
@@ -123,7 +123,7 @@ BODY:
 
 #### Updating:
 ```
-PUT: http://sipv.gorecan.com:11111/api/v1/foods/personal
+PUT: https://sipv.gorecan.com:11111/api/v1/foods/personal
 BODY:
 {
     "id": "591633a0-1ac0-43ab-9064-15a3767fbb6f",
@@ -136,7 +136,7 @@ BODY:
 
 #### Deleting:
 ```
-DELETE: http://sipv.gorecan.com:11111/api/v1/foods/personal/<id-of-food-here>
+DELETE: https://sipv.gorecan.com:11111/api/v1/foods/personal/<id-of-food-here>
 ```
 
 For public foods, just use the public foods endpoint. Note, that owner is allways null in public foods.
@@ -162,21 +162,21 @@ For intake manipulation user needs INTAKE_PERMISSION
 
 Endpoint:
 ```
-http://sipv.gorecan.com:11111/api/v1/intake/
+https://sipv.gorecan.com:11111/api/v1/intake/
 ```
 
 #### Adding:
 ```
-POST: http://sipv.gorecan.com:11111/api/v1/intake/<day>/<month>/<year>/<food-id>
+POST: https://sipv.gorecan.com:11111/api/v1/intake/<day>/<month>/<year>/<food-id>
 ```
 
 #### Deleting:
 ```
-DELETE: http://sipv.gorecan.com:11111/api/v1/intake/<intake-id>
+DELETE: https://sipv.gorecan.com:11111/api/v1/intake/<intake-id>
 ```
 
 #### Viewing:
 ```
-GET: http://sipv.gorecan.com:11111/api/v1/intake/<day>/<month>/<year>
+GET: https://sipv.gorecan.com:11111/api/v1/intake/<day>/<month>/<year>
 ```
 returns an array of "intake" objects
