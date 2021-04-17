@@ -30,7 +30,7 @@ public class DailyIntake {
     public UUID getId() { return id; }
     public void setId(UUID id) { this.id = id; }
 
-    @Column(name = "user")
+    @Column(name = "usr")
     public UUID getUserId() { return userId; }
     public void setUserId(UUID userId) { this.userId = userId; }
 
