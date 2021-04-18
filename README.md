@@ -118,6 +118,9 @@ BODY:
     "name": "Kinder jajčka",
     "kcal": 123,
     "foodType": "SWEETS"   <-- OPTIONAL PARAMETER
+    "carbs": 12            <-- OPTIONAL PARAMETER
+    "proteins": 13         <-- OPTIONAL PARAMETER
+    "fats": 14             <-- OPTIONAL PARAMETER
 }
 ```
 
@@ -130,7 +133,10 @@ BODY:
     "owner": "e8d68143-d59b-41b6-8e76-eb8e6499ffff",
     "name": "Kinder jajčka",
     "kcal": 123.0,
-    "foodType": "SWEETS"
+    "foodType": "SWEETS"   <-- OPTIONAL PARAMETER
+    "carbs": 12            <-- OPTIONAL PARAMETER
+    "proteins": 13         <-- OPTIONAL PARAMETER
+    "fats": 14             <-- OPTIONAL PARAMETER
 }
 ```
 
@@ -180,3 +186,23 @@ DELETE: https://sipv.gorecan.com:11111/api/v1/intake/<intake-id>
 GET: https://sipv.gorecan.com:11111/api/v1/intake/<day>/<month>/<year>
 ```
 returns an array of "intake" objects
+
+
+# PROFILE MANIPULATION
+For profile manipulation user needs PROFILE_PERMISSION
+
+To set/save goals follow provided examples:
+```
+POST: https://sipv.gorecan.com:11111/api/v1/profile/my-carbs-target/123
+```
+```
+POST: https://sipv.gorecan.com:11111/api/v1/profile/my-proteins-target/123
+```
+```
+POST: https://sipv.gorecan.com:11111/api/v1/profile/my-fats-target/123
+```
+
+To get saved data, just get user profile with this call:
+```
+GET: https://sipv.gorecan.com:11111/api/v1/profile
+```
