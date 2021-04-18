@@ -50,7 +50,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
                 .antMatchers("/api/v1/intake/**").hasAuthority("INTAKE_PERMISSION")
                 .antMatchers("/api/v1/foods/personal/**").hasAuthority("PERSONAL_FOODS_PERMISSION")
                 .antMatchers("/api/v1/foods/public/**").hasAuthority("PUBLIC_FOODS_PERMISSION")
-                .antMatchers(HttpMethod.GET, "/api/v1/foods/public").hasAuthority("PROFILE_PERMISSION")
+                .antMatchers(HttpMethod.GET, "/api/v1/foods/public/**").hasAuthority("PROFILE_PERMISSION")
         .anyRequest().authenticated().and().
         exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint).and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);

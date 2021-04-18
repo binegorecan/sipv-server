@@ -86,7 +86,7 @@ public class DailyIntakeController {
 
         activityRepository.save(new Activity(user.getId(), "User " + user.getUsername() + "[ " + user.getId() + "] added a new intake[" + intake.getId() + "]", true ));
 
-        return ResponseEntity.ok(intake);
+        return ResponseEntity.ok(dailyIntakeRepository.save(intake));
     }
 
     @CrossOrigin(origins = "*", allowedHeaders = "*")
