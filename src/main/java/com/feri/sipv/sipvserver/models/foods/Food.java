@@ -15,6 +15,9 @@ public class Food {
     private String name;
     private Double kcal;
     private FoodType foodType;
+    private int carbs;
+    private int proteins;
+    private int fats;
 
     public Food() { }
 
@@ -24,6 +27,9 @@ public class Food {
         this.name = name;
         this.kcal = kcal;
         this.foodType = FoodType.NOT_SPECIFIED;
+        this.carbs = 0;
+        this.proteins = 0;
+        this.fats = 0;
     }
 
     public Food(String name, double kcal, UUID owner) {
@@ -32,6 +38,9 @@ public class Food {
         this.name = name;
         this.kcal = kcal;
         this.foodType = FoodType.NOT_SPECIFIED;
+        this.carbs = 0;
+        this.proteins = 0;
+        this.fats = 0;
     }
 
     @Id
@@ -54,5 +63,17 @@ public class Food {
     @Column(name = "type", nullable = false)
     public FoodType getFoodType() { return foodType; }
     public void setFoodType(FoodType foodType) { this.foodType = foodType; }
+
+    @Column(name = "carbs")
+    public int getCarbs() { return carbs; }
+    public void setCarbs(int carbs) { this.carbs = carbs; }
+
+    @Column(name = "proteins")
+    public int getProteins() {  return proteins; }
+    public void setProteins(int proteins) { this.proteins = proteins; }
+
+    @Column(name = "fats")
+    public int getFats() { return fats; }
+    public void setFats(int fats) { this.fats = fats; }
 }
 

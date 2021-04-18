@@ -39,4 +39,61 @@ public class ProfileController {
         return ResponseEntity.ok(user);
     }
 
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
+    @PostMapping("/profile/my-carbs-target/{val}")
+    public ResponseEntity<?> setCarbs(@PathVariable("val") int value, @RequestHeader(name="Authorization") String token) throws ResourceNotFoundException {
+
+        User user = null;
+        List<Session> sessions = sessionRepository.findAll();
+        for (Session session : sessions){
+            if(session.getSessionToken().equals(token.substring(7))){
+                user = userRepository.findById(session.getUserId()).orElseThrow(() -> new ResourceNotFoundException("No such user!"));
+            }
+        }
+
+        if (user == null) throw new ResourceNotFoundException("Could not find profile!");
+
+        user.setCarbs(value);
+
+        return ResponseEntity.ok(userRepository.save(user));
+    }
+
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
+    @PostMapping("/profile/my-proteins-target/{val}")
+    public ResponseEntity<?> setProteins(@PathVariable("val") int value, @RequestHeader(name="Authorization") String token) throws ResourceNotFoundException {
+
+        User user = null;
+        List<Session> sessions = sessionRepository.findAll();
+        for (Session session : sessions){
+            if(session.getSessionToken().equals(token.substring(7))){
+                user = userRepository.findById(session.getUserId()).orElseThrow(() -> new ResourceNotFoundException("No such user!"));
+            }
+        }
+
+        if (user == null) throw new ResourceNotFoundException("Could not find profile!");
+
+        user.setProteins(value);
+
+        return ResponseEntity.ok(userRepository.save(user));
+    }
+
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
+    @PostMapping("/profile/my-fats-target/{val}")
+    public ResponseEntity<?> setFats(@PathVariable("val") int value, @RequestHeader(name="Authorization") String token) throws ResourceNotFoundException {
+
+        User user = null;
+        List<Session> sessions = sessionRepository.findAll();
+        for (Session session : sessions){
+            if(session.getSessionToken().equals(token.substring(7))){
+                user = userRepository.findById(session.getUserId()).orElseThrow(() -> new ResourceNotFoundException("No such user!"));
+            }
+        }
+
+        if (user == null) throw new ResourceNotFoundException("Could not find profile!");
+
+        user.setFats(value);
+
+        return ResponseEntity.ok(userRepository.save(user));
+    }
+
 }

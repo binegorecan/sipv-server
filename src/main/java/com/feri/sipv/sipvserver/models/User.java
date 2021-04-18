@@ -16,6 +16,9 @@ public class User {
     private String username;
     private String passwordHash;
     private String permissions;
+    private int carbs;
+    private int proteins;
+    private int fats;
 
     public User() {}
 
@@ -25,6 +28,9 @@ public class User {
         this.username = username;
         this.passwordHash = passwordHash;
         this.permissions = "";
+        this.carbs = 0;
+        this.proteins = 0;
+        this.fats = 0;
     }
 
     @Id
@@ -51,4 +57,16 @@ public class User {
     @Column(name = "permissions")
     public String getPermissions() { return permissions; }
     public void setPermissions(String permissions) { this.permissions = permissions; }
+
+    @Column(name = "carbs")
+    public int getCarbs() { return carbs; }
+    public void setCarbs(int carbs) { this.carbs = carbs; }
+
+    @Column(name = "proteins")
+    public int getProteins() {  return proteins; }
+    public void setProteins(int proteins) { this.proteins = proteins; }
+
+    @Column(name = "fats")
+    public int getFats() { return fats; }
+    public void setFats(int fats) { this.fats = fats; }
 }
